@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BrowseByCategory = () => {
+
+  // Random comment for merge conflict practice
+
   return (
     <section id="section-category" className="no-top">
       <div className="container">
