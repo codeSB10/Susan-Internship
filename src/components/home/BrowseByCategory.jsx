@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const BrowseByCategory = () => {
-
-  // FROM MAIN!! DO NOT REMOVE. Important Code - Merge Conflict Practice.
-
   return (
     <section id="section-category" className="no-top">
       <div className="container">
