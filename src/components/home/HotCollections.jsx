@@ -1,18 +1,17 @@
 import axios from "axios";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel";
 import Skeleton from "../UI/Skeleton";
 
 function HotCollections() {
-  const [authors, setAuthors] = useState([]);
+  const [collections, setCollections] = useState([]);
 
   async function fetchData() {
     const { data } = await axios.get(
       "https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections"
     );
-    setAuthors(data);
+    setCollections(data);
   }
 
   useEffect(fetchData, []);
@@ -48,7 +47,7 @@ function HotCollections() {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          {!authors.length ? (
+          {!collections.length ? (
             <>
               <OwlCarousel className="owl-theme" {...owlSettings}>
                 {new Array(6).fill(0).map((_, index) => (
@@ -71,22 +70,22 @@ function HotCollections() {
             </>
           ) : (
             <OwlCarousel className="owl-theme" {...owlSettings}>
-              {authors.map((author) => (
-                <div className="nft_coll" key={author.id}>
+              {collections.map((item) => (
+                <div className="nft_coll" key={item.id}>
                   <div className="nft_wrap">
-                    <Link to={`/item-details/${author.nftId}`}>
+                    <Link to={`/item-details/${item.nftId}`}>
                       <img
-                        src={author.nftImage}
+                        src={item.nftImage}
                         className="lazy img-fluid"
                         alt=""
                       />
                     </Link>
                   </div>
                   <div className="nft_coll_pp">
-                    <Link to={`/author/${author.authorId}`}>
+                    <Link to={`/author/${item.authorId}`}>
                       <img
                         className="lazy pp-coll"
-                        src={author.authorImage}
+                        src={item.authorImage}
                         alt=""
                       />
                     </Link>
@@ -94,9 +93,9 @@ function HotCollections() {
                   </div>
                   <div className="nft_coll_info">
                     <Link to="/explore">
-                      <h4>{author.title}</h4>
+                      <h4>{item.title}</h4>
                     </Link>
-                    <span>ERC-{author.code}</span>
+                    <span>ERC-{item.code}</span>
                   </div>
                 </div>
               ))}

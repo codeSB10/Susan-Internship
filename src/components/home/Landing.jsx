@@ -2,8 +2,11 @@ import React from "react";
 import NFT from "../../images/nft.png";
 import backgroundImage from "../../images/bg-shape-1.jpg";
 import { Link } from "react-router-dom";
+import AOS from "aos";
 
 const Landing = () => {
+  AOS.init();
+
   return (
     <section
       id="section-hero"

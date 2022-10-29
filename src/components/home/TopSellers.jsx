@@ -45,7 +45,7 @@ const TopSellers = () => {
             ) : (
               <ol className="author_list">
                 {topSellers.map((item) => (
-                  <li key={item.id}>
+                  <li key={item.id} data-aos="zoom-in-up" data-aos-duration="1500">
                     <div className="author_list_pp">
                       <Link to={`/author/${item.authorId}`}>
                         <img

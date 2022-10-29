@@ -17,10 +17,13 @@ const Author = () => {
     setAuthor(data);
   }
 
-  useEffect(fetchData, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchData();
+  }, []);
 
   return (
-    <div id="wrapper">
+    <div id="wrapper" data-aos="fade-down" data-aos-duration="1000">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
 

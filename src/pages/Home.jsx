@@ -7,12 +7,8 @@ import NewItems from "../components/home/NewItems";
 import TopSellers from "../components/home/TopSellers";
 
 const Home = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div id="wrapper">
+    <div id="wrapper" data-aos="fade-down" data-aos-duration="1000">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
         <Landing />
