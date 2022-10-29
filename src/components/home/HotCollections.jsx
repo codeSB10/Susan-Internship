@@ -74,7 +74,7 @@ function HotCollections() {
               {authors.map((author) => (
                 <div className="nft_coll" key={author.id}>
                   <div className="nft_wrap">
-                    <Link to="/item-details">
+                    <Link to={`/item-details/${author.nftId}`}>
                       <img
                         src={author.nftImage}
                         className="lazy img-fluid"
